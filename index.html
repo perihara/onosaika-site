@@ -884,9 +884,9 @@
 
   // ================= 作品モーダル =================
   const overlay = $('#modalOverlay'), dim = $('#modalShade'), dimBottom = $('#modalShadeBottom');
-  // 画面の一番下の帯: 固定した板の下端(レイアウト上の画面の高さ)から、ページ側に少し重ねて貼る
+  // 画面の一番下の帯: 固定した板の下端(レイアウト上の画面の高さ)の、ちょうど下から貼る(重ねると、半透明が二重になって、濃い横線に見える)
   function placeShadeBottom(){
-    dimBottom.style.top = (scrollY + document.documentElement.clientHeight - 6) + 'px';
+    dimBottom.style.top = (Math.floor(scrollY) + document.documentElement.clientHeight) + 'px';
   }
   addEventListener('scroll', () => { if(overlay.classList.contains('open')) placeShadeBottom(); }, {passive:true});
   addEventListener('resize', () => { if(overlay.classList.contains('open')) placeShadeBottom(); });
