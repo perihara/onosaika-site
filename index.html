@@ -5,7 +5,7 @@
 <meta name="site-version" content="2026-11-25-1600">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
-<title>ONO SAIKA | Oil painter</title>
+<title>Ono Saika | Oil painter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -449,7 +449,7 @@
 
 <!-- スマホ専用の固定ヘッダー(ヘッダー・フッター・メニュー項目の共通パーツは下のスクリプトで生成) -->
 <header class="mobile-sticky-header" id="mobileStickyHeader">
-  <div class="logo" data-nav="top">ONO SAIKA</div>
+  <div class="logo" data-nav="top">Ono Saika</div>
   <button class="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
 </header>
 
@@ -458,13 +458,13 @@
   <div class="hero-wrap">
     <div class="hero"><picture>
         <source media="(max-width:760px)" srcset="images/hero-mobile.jpg">
-        <img src="images/hero.jpg" alt="ONO SAIKA">
+        <img src="images/hero.jpg" alt="Ono Saika">
       </picture>
       <div class="hero-text">
-        <div class="hero-logo" role="img" aria-label="小野彩華 ONO SAIKA - Oil painter / Japan">
+        <div class="hero-logo" role="img" aria-label="小野彩華 Ono Saika - Oil painter / Japan">
           <svg class="hl-name" viewBox="0 0 497 114" aria-hidden="true" focusable="false">
             <text x="148.03 196.21 267.79 315.97" y="27.89" font-size="33"><tspan>小野</tspan><tspan fill="#d9653f">彩</tspan><tspan>華</tspan></text>
-            <text x="-0.81 64.33 131.41 226.81 279.96 342.78 384.77 449.08" y="112" font-size="64.5"><tspan>ONO</tspan><tspan fill="#d9653f">SAI</tspan><tspan>KA</tspan></text>
+            <text x="0" y="112" font-size="66" textLength="494" lengthAdjust="spacing">Ono Saika</text>
           </svg>
           <span class="hl-line" aria-hidden="true"></span>
           <svg class="hl-tagline" viewBox="0 166 497 24" aria-hidden="true" focusable="false">
@@ -684,7 +684,7 @@
     </div>
   </div>
   <footer class="site-foot-full">
-    <div class="site-foot-logo">ONO SAIKA</div>
+    <div class="site-foot-logo">Ono Saika</div>
     <div class="site-foot-nav">
       <a data-nav="top">TOP</a>
       <a data-nav="news">NEWS</a>
@@ -749,7 +749,7 @@
   const PAGES = [['top','TOP','トップ'],['statement','STATEMENT','ステートメント'],['works','WORKS','作品'],
                  ['news','NEWS','ニュース'],['artist','ARTIST','アーティスト'],['contact','CONTACT','お問い合わせ']];
   const header = cls => `<header${cls}>
-    <div class="logo" data-nav="top">ONO SAIKA</div>
+    <div class="logo" data-nav="top">Ono Saika</div>
     <nav>${PAGES.map(([k, en]) => `<a data-nav="${k}">${en}</a>`).join('')}${instaLink}${LANG_BTN}</nav>
     <button class="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
   </header>`;
@@ -1024,7 +1024,7 @@
   // ================= ヒーロー: フォントが揃ってから演出を開始 =================
   const heroLogo = $('.hero-logo'), startHero = () => heroLogo.classList.add('ready');
   Promise.all([
-    document.fonts.load('800 40px "Noto Serif JP"', '小野彩華ONO SAIKA'),
+    document.fonts.load('800 40px "Noto Serif JP"', '小野彩華Ono Saika'),
     document.fonts.load('500 20px "Noto Serif JP"', 'Oil painter / Japan'),
   ]).then(startHero, startHero);
   setTimeout(startHero, 4000);                                   // 通信が遅い場合の保険
