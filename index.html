@@ -34,12 +34,13 @@
   /* ---------- ヘッダー ---------- */
   header{position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:26px 46px;background:#fff;}
   header::after{content:'';position:absolute;left:46px;right:46px;bottom:0;height:1px;background:var(--line);}
+  header:not(.on-hero){color:#4d4d4d;}   /* 白いバーの文字は真っ黒でなくダークグレー */
   header.on-hero{
     position:absolute;top:0;left:0;width:100%;background:transparent;color:#fff;
     opacity:0;--y:34px;animation:rise 1.4s var(--ease) .1s both;
   }
   header.on-hero::after{background:rgba(255,255,255,.4);}
-  .logo{font-family:'Noto Serif JP','Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',serif;font-size:21px;letter-spacing:.21em;font-weight:800;cursor:pointer;line-height:1;}
+  .logo{font-family:'Noto Serif JP','Shippori Mincho','Hiragino Mincho ProN','Yu Mincho',serif;font-size:21px;letter-spacing:.21em;font-weight:800;cursor:pointer;line-height:1;white-space:nowrap;flex-shrink:0;}
   nav{display:flex;align-items:center;gap:34px;}
   nav a{display:inline-block;font-family:var(--serif-en);font-size:14.5px;letter-spacing:.09em;opacity:.82;cursor:pointer;}
   nav a.active{opacity:1;}
@@ -55,6 +56,14 @@
   nav a:active,.insta-icon:active,.lang-toggle:active{opacity:1;transform:translateY(-5px);}
   @media (hover:hover){nav a:hover,.insta-icon:hover,.lang-toggle:hover{opacity:1;transform:translateY(-5px);}}
 
+  /* タブレット幅(761〜1000px): ロゴとメニューがぶつからないよう余白と間隔を少し詰める */
+  @media(min-width:761px) and (max-width:1000px){
+    header{padding:26px 28px;}
+    header::after{left:28px;right:28px;}
+    .logo{font-size:19px;letter-spacing:.12em;}
+    nav{gap:16px;}
+    nav a{font-size:13px;letter-spacing:.05em;}
+  }
   /* ---------- ハンバーガー ---------- */
   .hamburger{display:none;position:relative;width:26px;height:20px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;}
   .hamburger span{
@@ -99,7 +108,7 @@
   /* ---------- スマホ専用の固定ヘッダー ---------- */
   .mobile-sticky-header{
     display:none;position:sticky;top:0;z-index:320;align-items:center;justify-content:space-between;
-    padding:16px 20px;background:#fff;border-bottom:1px solid var(--line);color:var(--ink);
+    padding:16px 20px;background:#fff;border-bottom:1px solid var(--line);color:#4d4d4d;
   }
   .mobile-sticky-header::after{display:none;}
   .mobile-sticky-header .logo{font-size:19px;letter-spacing:.21em;}
