@@ -1102,7 +1102,7 @@
     }
     $$('nav a').forEach(a => a.classList.toggle('active', a.dataset.nav === name));
     fitStatement();
-    try{ history.replaceState(null, '', '#' + name); }catch{}   // プレビュー等の隔離環境ではエラーになるので失敗しても無視
+    if(!mobile.matches){ try{ history.replaceState(null, '', '#' + name); }catch{} }   // プレビュー等の隔離環境ではエラーになるので失敗しても無視
   }
 
   document.addEventListener('click', e => {
@@ -1125,7 +1125,12 @@
   const initial = (location.hash || '#top').slice(1);
   if(mobile.matches){
     $$('.page').forEach(p => p.classList.add('active'));
-    if(initial !== 'top') addEventListener('load', () => goPage(initial));
+    // 開いたときは必ず一番上から表示する(前回のスクロール位置や #リンクで途中から始まらないように)
+    try{ history.scrollRestoration = 'manual'; }catch{}
+    const toTop = () => { if(scrollY > 0) scrollTo(0, 0); };
+    toTop();
+    addEventListener('load', toTop);
+    addEventListener('pageshow', toTop);
   }else{
     goPage($(`.page[data-page="${initial}"]`) ? initial : 'top');
   }
